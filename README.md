@@ -10,3 +10,7 @@ FFT Phase Field Model for a 3D Smectic
 4. surfTrack.cpp : Tracks surface velocity
 
 5. cosNoAdvMorph.cpp : DCT for (3) IC, without advection
+
+6. energyPsi.m : computes energy integral
+
+7. pf3dVal.cpp : validation via wavenumber
