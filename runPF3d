@@ -1,0 +1,24 @@
+#!/bin/bash -l
+#PBS -l walltime=24:00:00,nodes=8:ppn=8,mem=200gb
+#PBS -j oe
+#PBS -m abe
+
+echo "-------------------------------------------------------------------------"
+echo "Environment for building and running applications with Intel compiler and OMPI"
+
+# Reset modules to base state
+#module purge
+#module load local vars user moab torque suacct base
+
+#Load modules for Intel & PMPI
+module load intel ompi/intel
+#module list
+cd ~/smectic/pf3d
+
+echo " "
+echo "-------------------------------------------------------------------------"
+echo "Application with double precision MPI parallel FFTW 3.3"
+export BUILD=/soft/fftw/intel-ompi/3.3-double
+export LIBS="-lfftw3_mpi -lfftw3 -lm"
+mpicxx -I $BUILD/include -o pf3d pf3d.cpp -L $BUILD/lib $LIBS
+mpirun -np 64 pf3d > result.out
