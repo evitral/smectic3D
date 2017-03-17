@@ -9,4 +9,4 @@ FFT Phase Field Model for a 3D Smectic
 
 4. surfTrack.cpp : Tracks surface velocity
 
-5. cosNoAdvMorph.cpp : DCT for (3) IC, without adevction
+5. cosNoAdvMorph.cpp : DCT for (3) IC, without advection
