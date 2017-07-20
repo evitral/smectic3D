@@ -1,8 +1,9 @@
 /********************************************
  *                                          *
- *                 pf3d.cpp                 *
+ *            surfTrack.cpp                 *
  *                                          *
- *     3D Phase Field + FFTW in parallel    *
+ *     3D Phase Field + periodic FFTW       *
+ *      Tracks a surface + save data        *
  *                                          *
  ********************************************/
 
