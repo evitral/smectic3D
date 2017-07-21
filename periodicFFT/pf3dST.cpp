@@ -1,8 +1,11 @@
 /********************************************
  *                                          *
- *                 pf3d.cpp                 *
+ *               pf3dST.cpp                 *
  *                                          *
  *     3D Phase Field + FFTW in parallel    *
+ *      same as pf3d, but used before ST    *
+ *                                          *
+ *     Author: Eduardo Vitral               *
  *                                          *
  ********************************************/
 
