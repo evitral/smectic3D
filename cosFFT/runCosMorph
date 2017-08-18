@@ -1,0 +1,31 @@
+#!/bin/bash
+#SBATCH -J smectic
+#SBATCH -o smectic.%j.out
+#SBATCH --partition=compute
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=16
+#SBATCH --mem=60G
+#SBATCH --export=ALL
+#SBATCH -t 48:00:00
+#SBATCH -A umn120
+
+echo "-------------------------------------------------------------------------"
+echo "Environment for building and running applications with Intel compiler and MPI"
+
+# Reset modules to base state
+#module purge
+
+#Load modules for Intel & MPI
+module load gnutools
+module load intel/2016.3.210 mvapich2_ib
+module load fftw
+#module list
+#cd ~/cosMorph/
+
+echo " "
+echo "-------------------------------------------------------------------------"
+echo "Application with double precision MPI parallel FFTW 3.3"
+export BUILD=/opt/fftw/3.3.4/intel/mvapich2_ib
+export LIBS="-lfftw3_mpi -lfftw3 -lm -Wall -std=c++11"
+mpicxx -I $BUILD/include -O2 -o cosNoAdvMorph cosNoAdvMorph.cpp -L $BUILD/lib $LIBS
+ibrun ./cosNoAdvMorph > result.out
