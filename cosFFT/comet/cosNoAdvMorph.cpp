@@ -67,8 +67,8 @@ mpicxx -I /opt/fftw/3.3.4/intel/mvapich2_ib/include -O2 -o code code.cpp
 double wallPotential(int z)
 {
 	double wP;
-	double sigma = 1.0; // 2
-	double z0 = 0.0001;
+	double sigma = 0.0; // 1
+	double z0 = 0.0001; //0.0001;
 	wP = sigma*exp(-z/z0);
 	return wP;
 }
