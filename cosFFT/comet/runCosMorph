@@ -2,7 +2,7 @@
 #SBATCH -J smectic
 #SBATCH -o smectic.%j.out
 #SBATCH --partition=compute
-#SBATCH --nodes=1
+#SBATCH --nodes=2
 #SBATCH --ntasks-per-node=16
 #SBATCH --mem=60G
 #SBATCH --export=ALL
